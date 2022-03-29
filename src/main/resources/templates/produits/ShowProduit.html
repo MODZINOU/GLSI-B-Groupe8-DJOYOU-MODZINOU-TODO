@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Produits</title>
+
+    <link rel="stylesheet"  th:href="@{/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+
+<div class="container">
+    <h1> Liste des produits </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Date de creation</th>
+            <th scope="col">Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${produits}">
+            <th th:text="${item.id}" scope="row"></th>
+            <td th:text="${item.libelle}"></td>
+            <td th:text="${item.qtstock}"></td>
+            <td th:text="${item.qtseuil}"></td>
+            <td th:text="${item.datecreation}"></td>
+            <td th:text="${item.prix}"></td>
+            <td th:text="${item.categorie.designation}"></td>
+
+            <td>
+                <a th:href="@{/produits/edit/{id}(id=${item.id})}" class="btn btn-warning">Modifier</a>
+                <a th:href="@{/produits/delete/{id}(id=${item.id})} " class="btn btn-danger">Supprimer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script rel="text/javascript"  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>
