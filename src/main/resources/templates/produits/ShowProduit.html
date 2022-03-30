@@ -9,6 +9,29 @@
 </head>
 <body>
 
+<div class="row">
+    <nav id="navbar" class="navbar">
+        <ul>
+            <li><a class="nav-link scrollto " href="">Home</a></li>
+            <li><a class="nav-link scrollto" href="form">Ajouter</a></li>
+            <li><a class="nav-link scrollto" href="#services">Services</a></li>
+            <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+            <li><a class="nav-link scrollto" href="#team">Team</a></li>
+            <li><a class="nav-link  active" href="blog.html">Blog</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+</div>
+
+
+
+
+
+
+
+
+
 <div class="container">
     <h1> Liste des produits </h1>
 
@@ -21,21 +44,22 @@
             <th scope="col">Stock</th>
             <th scope="col">Date de creation</th>
             <th scope="col">Prix</th>
+            <th scope="col">Categorie</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="item : ${produits}">
-            <th th:text="${item.id}" scope="row"></th>
-            <td th:text="${item.libelle}"></td>
-            <td th:text="${item.qtstock}"></td>
-            <td th:text="${item.qtseuil}"></td>
-            <td th:text="${item.datecreation}"></td>
-            <td th:text="${item.prix}"></td>
-            <td th:text="${item.categorie.designation}"></td>
+        <tr th:each="prod : ${produits}">
+            <th th:text="${prod.id}" scope="row"></th>
+            <td th:text="${prod.libelle}"></td>
+            <td th:text="${prod.qtstock}"></td>
+            <td th:text="${prod.qtseuil}"></td>
+            <td th:text="${prod.datecreation}"></td>
+            <td th:text="${prod.prix}"></td>
+            <td th:text="${prod.categorieModel.designation}"></td>
 
             <td>
-                <a th:href="@{/produits/edit/{id}(id=${item.id})}" class="btn btn-warning">Modifier</a>
-                <a th:href="@{/produits/delete/{id}(id=${item.id})} " class="btn btn-danger">Supprimer</a>
+                <a th:href="@{/produits/edit/{id}(id=${prod.id})}" class="btn btn-warning">Modifier</a>
+                <a th:href="@{/produits/delete/{id}(id=${prod.id})} " class="btn btn-danger">Supprimer</a>
             </td>
         </tr>
         </tbody>

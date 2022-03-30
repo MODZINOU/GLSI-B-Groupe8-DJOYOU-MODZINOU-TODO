@@ -32,7 +32,7 @@ public class ProduitController {
     @GetMapping("/form")
     public String renseigner(Model model)
     {
-        //model.addAttribute("listCategories",categorieService.showCategories());
+        model.addAttribute("ListeCategories",categorieService.showCategorie());
         return "produits/saveProduit";
     }
 
