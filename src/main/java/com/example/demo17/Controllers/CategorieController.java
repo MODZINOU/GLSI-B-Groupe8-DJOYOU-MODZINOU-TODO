@@ -48,4 +48,10 @@ public class CategorieController {
         categorieService.deleteCategorie(id);
         return "redirect:/categorie/afficher";
     }
+
+    @GetMapping("/navigation")
+    public String nav(){
+        return "/categories/initial";
+    }
+
 }

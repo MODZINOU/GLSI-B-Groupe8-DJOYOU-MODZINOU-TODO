@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
 </head>
 <body>
+<div th:replace="/categories/initial :: navigation"></div>
+
+<div layout:fragment="initial" class="container"></div>
+
 <div class="container">
     <h2>Formulaire de saisie de categorie</h2>
     <form th:action="@{/categorie/save}" method="post">

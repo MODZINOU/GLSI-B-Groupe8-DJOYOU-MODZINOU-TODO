@@ -6,6 +6,9 @@
     <link rel="stylesheet"  th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
+
+<div th:replace="/categories/initial :: navigation"></div>
+
 <div class="container">
     <h2>formulaire de mise a jour de Categorie  </h2>
     <form th:action="@{/categorie/update}" th:object="${uneCategorie}" method="post" >
