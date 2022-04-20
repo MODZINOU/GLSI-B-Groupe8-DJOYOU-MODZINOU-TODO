@@ -8,6 +8,12 @@
 </head>
 <body>
 <div class="container">
+
+    <div th:replace="/produits/nav :: navigation"></div>
+    <br/><br/><br/><br/><br/><br/>
+
+
+
     <h2>formulaire de saisie de produit </h2>
     <form th:action="@{/produits/save}" method="post" >
         <div class="mb-3">

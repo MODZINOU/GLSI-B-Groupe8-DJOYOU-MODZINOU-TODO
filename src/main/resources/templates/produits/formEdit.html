@@ -6,6 +6,21 @@
     <link rel="stylesheet"  th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
+
+<div th:replace="/produits/nav :: navigation"></div>
+<br/>
+<br/><br/>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+
+
+
 <div class="container">
     <h2>formulaire de mise a jour de produit  </h2>
     <form th:action="@{/produits/edit}" th:object="${UnProduit}" method="post" >
@@ -21,7 +36,7 @@
             <label  class="form-label">prix </label>
             <input type="number" th:field="*{prix}" class="form-control"  >
         </div>
-        <!--div class="mb-3">
+        <div class="mb-3">
             <label class="form-label">Categorie </label>
             <select name="categorieId" required >
                 <option value="" > Selectionner une catégorie</option>
@@ -30,7 +45,8 @@
                         th:text="${Categorie.designation}">
                 </option>
             </select>
-        </div-->
+        </div>
+
         <div class="mb-3">
             <input type="hidden" th:field="*{datecreation}" class="form-control">
             <input type="hidden" th:field="*{qtstock}" class="form-control">

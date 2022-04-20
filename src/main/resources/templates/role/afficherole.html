@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Roles</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+
+</head>
+<body>
+
+<div th:replace="/role/navigation :: nav"></div>
+
+
+<div class="container" >
+    <h2>Liste des Roles</h2>
+    <table class="table table-stripped table-hover" >
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Role</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "a:${listerole}">
+            <th scope="row" th:text = "${a.id}"></th>
+            <td th:text="${a.role}"></td>
+
+            <td >
+                <a th:href="@{/role/modifier/{id}(id=${a.id})}" class="btn btn-warning">Modifier </a>
+                <a th:href="@{/role/delete/{id}(id=${a.id})}" class="btn btn-danger">Supprimer</a>
+            </td>
+        </tr>
+
+
+
+        </tbody>
+    </table>
+
+</div>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

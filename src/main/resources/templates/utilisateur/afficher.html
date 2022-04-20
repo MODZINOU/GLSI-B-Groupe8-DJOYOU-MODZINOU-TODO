@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>AFFICHER UTILISATEUR</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+
+</head>
+<body>
+<div th:replace="/utilisateur/navigation :: nav"></div>
+
+
+<div class="container" >
+    <h2>Liste des Utilisateurs</h2>
+    <table class="table table-stripped table-hover" >
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">Role</th>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each = "a:${listeutilisateur}">
+            <th scope="row" th:text = "${a.id}"></th>
+            <td th:text="${a.nom}"></td>
+            <td th:text="${a.prenom}"></td>
+            <td th:text="${a.email}"></td>
+            <td th:text="${a.adresse}"></td>
+            <td th:text="${a.telephone}"></td>
+            <td th:text="${a.roleModel.role}"></td>
+
+            <td >
+                <a th:href="@{/utilisateur/modifier/{id}(id=${a.id})}" class="btn btn-warning">Modifier </a>
+                <a th:href="@{/utilisateur/delete/{id}(id=${a.id})}" class="btn btn-danger">Supprimer</a>
+            </td>
+        </tr>
+
+
+
+        </tbody>
+    </table>
+
+</div>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>MODIFICATION</title>
+    <link rel="stylesheet"  th:href="@{/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div th:replace="/client/navigation :: nav"></div>
+
+<div class="container">
+    <h2>formulaire de mise a jour de Categorie  </h2>
+    <form th:action="@{/clients/update}" th:object="${unclient}" method="post" >
+        <div class="mb-3">
+            <input type="hidden" th:field="*{id}" class="form-control"  >
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Nom</label>
+            <input type="text" th:field="*{nom}" class="form-control"  >
+            <label  class="form-label">Prenom</label>
+            <input type="text" th:field="*{prenom}" class="form-control"  >
+            <label  class="form-label">Adresse</label>
+            <input type="text" th:field="*{adresse}" class="form-control"  >
+            <label  class="form-label">Telephone</label>
+            <input type="text" th:field="*{telephone}" class="form-control"  >
+        </div>
+        <div class="mb-3">
+            <input type="submit" value="Enregistrer" class="btn btn-primary">
+            <a th:href="@{/clients/afficher}" class="btn btn-danger">Annuler</a>
+
+        </div>
+
+    </form>
+
+</div>
+<script rel="text/javascript"  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

@@ -2,13 +2,12 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>APPROVISIONNEMENT</title>
+    <title>AFFICHAGE</title>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
-
 </head>
 <body>
 
-<div th:replace="/approvisionnement/navigation :: nav"></div>
+<div th:replace="/client/navigation :: nav"></div>
 
 
 <div class="container" >
@@ -17,18 +16,20 @@
         <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Produits</th>
-            <th scope="col">Quantité</th>
-            <th scope="col">Date</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Numero</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "a:${ListeApprovisionnemet}">
+        <tr th:each = "a:${client}">
             <th scope="row" th:text = "${a.id}"></th>
-            <td th:text="${a.produitModel.libelle}"></td>
-            <td th:text="${a.qte}"></td>
-            <td th:text="${a.dateappro}"></td>
+            <td th:text="${a.nom}"></td>
+            <td th:text="${a.prenom}"></td>
+            <td th:text="${a.adresse}"></td>
+            <td th:text="${a.telephone}"></td>
 
 
             <td >

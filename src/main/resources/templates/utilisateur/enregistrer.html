@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Enregistrement</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+
+<div th:replace="/utilisateur/navigation :: nav"></div>
+
+<div class="container">
+    <h4>Formulaire de saisie des Utilisteurs</h4>
+    <form th:action="@{/utilisateur/save}" method="post">
+        <div class="mb-3">
+            <label class="form-label">Role </label>
+            <select name="roleId" required >
+                <option value="" > Selectionner un Role</option>
+                <option th:each= "role:${listerole}"
+                        th:value="${role.id}"
+                        th:text="${role.role}">
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email"  name="email" class="form-control">
+            <label class="form-label">Nom</label>
+            <input type="text"  name="nom" class="form-control">
+            <label class="form-label">Prenom</label>
+            <input type="text"  name="prenom" class="form-control">
+            <label class="form-label">Mot de Passe</label>
+            <input type="password"  name="password" class="form-control">
+            <label class="form-label">Adresse</label>
+            <input type="text"  name="adresse" class="form-control">
+            <label class="form-label">Telephone</label>
+            <input  type="number"  name="telephone" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+
+</div>
+<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

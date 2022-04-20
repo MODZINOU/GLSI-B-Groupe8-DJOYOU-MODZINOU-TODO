@@ -9,26 +9,9 @@
 </head>
 <body>
 
-<div class="row">
-    <nav id="navbar" class="navbar">
-        <ul>
-            <li><a class="nav-link scrollto " href="">Home</a></li>
-            <li><a class="nav-link scrollto" href="form">Ajouter</a></li>
-            <li><a class="nav-link scrollto" href="#services">Services</a></li>
-            <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-            <li><a class="nav-link scrollto" href="#team">Team</a></li>
-            <li><a class="nav-link  active" href="blog.html">Blog</a></li>
-            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
-</div>
+<div th:replace="/produits/nav :: navigation"></div>
 
-
-
-
-
-
+<br/><br/><br/><br/><br/>
 
 
 
@@ -60,6 +43,8 @@
             <td>
                 <a th:href="@{/produits/edit/{id}(id=${prod.id})}" class="btn btn-warning">Modifier</a>
                 <a th:href="@{/produits/delete/{id}(id=${prod.id})} " class="btn btn-danger">Supprimer</a>
+                <a th:href="@{/approvisionnement/enregistrer/{id}(id=${prod.id})}" class="btn btn-warning">Approvisionner</a>
+
             </td>
         </tr>
         </tbody>
