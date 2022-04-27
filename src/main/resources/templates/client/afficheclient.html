@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <title>AFFICHAGE</title>
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 </head>
+
 <body>
 
-<div th:replace="/client/navigation :: nav"></div>
+    <div th:replace="/client/navigation :: nav"></div>
 
 
-<div class="container" >
-    <h2>Liste des Clients</h2>
-    <table class="table table-stripped table-hover" >
-        <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Adresse</th>
-            <th scope="col">Numero</th>
+    <div class="container table-responsive">
+        <h2>Liste des Clients</h2>
+        <table class="table table-stripped table-hover table-bordered ">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Numero</th>
 
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each = "a:${client}">
-            <th scope="row" th:text = "${a.id}"></th>
-            <td th:text="${a.nom}"></td>
-            <td th:text="${a.prenom}"></td>
-            <td th:text="${a.adresse}"></td>
-            <td th:text="${a.telephone}"></td>
-
-
-            <td >
-                <a th:href="@{/clients/modifier/{id}(id=${a.id})}" class="btn btn-warning">Modifier </a>
-                <a th:href="@{/clients/delete/{id}(id=${a.id})}" class="btn btn-danger">Supprimer</a>
-            </td>
-        </tr>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="a:${client}">
+                    <th scope="row" th:text="${a.id}"></th>
+                    <td th:text="${a.nom}"></td>
+                    <td th:text="${a.prenom}"></td>
+                    <td th:text="${a.adresse}"></td>
+                    <td th:text="${a.telephone}"></td>
 
 
+                    <td>
+                        <a th:href="@{/clients/modifier/{id}(id=${a.id})}" class="btn btn-warning">Modifier </a>
+                        <a th:href="@{/clients/delete/{id}(id=${a.id})}" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
 
-        </tbody>
-    </table>
 
-</div>
-<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+            </tbody>
+        </table>
+
+    </div>
+    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
+
 </html>
