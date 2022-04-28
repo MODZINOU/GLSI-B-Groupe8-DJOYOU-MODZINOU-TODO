@@ -4,6 +4,7 @@ import com.example.demo17.Models.UtilisateurModel;
 import com.example.demo17.Services.RoleService;
 import com.example.demo17.Services.UtilisateurService;
 import jdk.jfr.Category;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,4 +59,9 @@ public class UtilisateurController {
     }
 
 
+    @Data
+    class RoletoUser{
+        private String nom;
+        private String role;
+    }
 }

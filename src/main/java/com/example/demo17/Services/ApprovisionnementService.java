@@ -13,19 +13,19 @@ public class ApprovisionnementService {
     @Autowired
     private ApprovisionnementRepository approvisionnementRepository;
 
-    public void saveApprovisionnement(ApprovisionnementModel approvisionnementModel){
-        approvisionnementRepository.save(approvisionnementModel);
-    }
-
-    public List<ApprovisionnementModel> showApprovisionnement(){
+    public List<ApprovisionnementModel> list(){
         return approvisionnementRepository.findAll();
     }
 
-    public ApprovisionnementModel showOneApprovisionnement(int id){
+    public void save(ApprovisionnementModel approvisionnementModel){
+        approvisionnementRepository.save(approvisionnementModel);
+    }
+
+    public ApprovisionnementModel unapp(int id){
         return approvisionnementRepository.findById(id).get();
     }
 
-    public void deleteApprovisionnement(int id){
+    public void delete(int id){
         approvisionnementRepository.deleteById(id);
     }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vente</title>
+    <link rel="stylesheet"  th:href="@{/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+
+<div class="container">
+    <h1> Liste des Produits Commander </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Code Produit</th>
+            <th scope="col">produit</th>
+            <th scope="col">prix</th>
+            <th scope="col">Quantite</th>
+            <th scope="col">Totale</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="prod : ${v}">
+            <th th:text="${prod.produitId}" scope="row"></th>
+            <td th:text="${prod.produitModel.libelle}"></td>
+            <td th:text="${prod.produitModel.prix}"></td>
+            <td th:text="${prod.quantite}"></td>
+            <td th:text="${prod.quantite * prod.produitModel.prix}"></td>
+
+
+            <td>
+                <a th:href="@{/commande/edit/{id}(id=${prod.id})}" class="btn btn-warning">Modifier</a>
+                <a th:href="@{/commande/delete/{id}(id=${prod.id})} " class="btn btn-danger">retirer</a>
+            </td>
+            <td rowspan="3"></td>
+            <td>
+                <a th:href="@{/commande/facture/{id}(id=${prod.venteId})}" class="btn btn-success">Facturer</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script rel="text/javascript"  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+</body>
+</html>

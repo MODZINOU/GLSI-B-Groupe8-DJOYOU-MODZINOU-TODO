@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vente</title>
+    <link rel="stylesheet"  th:href="@{/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+
+
+<div th:replace="/produits/nav :: navigation"></div>
+
+<br/><br/><br/><br/><br/>
+
+
+
+<div class="container">
+    <h1> Liste des Ventes </h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">client</th>
+            <th scope="col">caissier</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="prod : ${vente}">
+            <th th:text="${prod.codevente}" scope="row"></th>
+            <td th:text="${prod.clientModel.nom}"></td>
+            <td th:text="${prod.utilisateurModel.nom}"></td>
+            <td th:text="${prod.datevente}"></td>
+
+            <td>
+                <a th:href="@{/vente/edit/{id}(id=${prod.codevente})}" class="btn btn-warning">Modifier</a>
+                <a th:href="@{/vente/delete/{id}(id=${prod.codevente})} " class="btn btn-danger">Supprimer</a>
+                <a th:href="@{/vente/detail/{id}(id=${prod.codevente})}" class="btn btn-warning">Details</a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script rel="text/javascript"  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>

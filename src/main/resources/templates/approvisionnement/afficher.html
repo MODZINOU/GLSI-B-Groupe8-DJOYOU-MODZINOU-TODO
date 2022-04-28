@@ -2,39 +2,41 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>APPROVISIONNEMENT</title>
+    <title>Approvisionnement</title>
+    <script>
+        alert("Liste des approvisionnement");
+    </script>
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" >
 
 </head>
 <body>
 
-<div th:replace="/approvisionnement/navigation :: nav"></div>
+<div th:replace="/produits/nav :: nav"></div>
 
-
+<br/><br/><br/><br/>
 <div class="container" >
-    <h2>Liste des Clients</h2>
+    <h2>Liste des Approvisionnement</h2>
     <table class="table table-stripped table-hover" >
         <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Produits</th>
+            <th scope="col">Produit</th>
             <th scope="col">Quantité</th>
             <th scope="col">Date</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each = "a:${ListeApprovisionnemet}">
+        <tr th:each = "a:${liste}">
             <th scope="row" th:text = "${a.id}"></th>
-            <td th:text="${a.produitModel.libelle}"></td>
+            <td th:text="${a.produitId}"></td>
             <td th:text="${a.qte}"></td>
-            <td th:text="${a.dateappro}"></td>
+            <td th:text="${a.date}"></td>
 
-
-            <td >
+            <!--td >
                 <a th:href="@{/clients/modifier/{id}(id=${a.id})}" class="btn btn-warning">Modifier </a>
                 <a th:href="@{/clients/delete/{id}(id=${a.id})}" class="btn btn-danger">Supprimer</a>
-            </td>
+            </td-->
         </tr>
 
 
@@ -43,6 +45,9 @@
     </table>
 
 </div>
+
+
 <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
 </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vente</title>
+    <link rel="stylesheet"  th:href="@{/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div th:replace="/produits/nav :: navigation"></div>
+    <br/><br/><br/><br/><br/><br/>
+
+
+
+    <h2>formulaire de saisie de produit </h2>
+    <form th:action="@{/vente/save}" method="post" >
+        <div class="mb-3">
+            <label class="form-label">Client </label>
+            <select name="clientId" required >
+                <option value="" > Selectionner un client</option>
+                <option th:each= "categorie:${client}"
+                        th:value="${categorie.id}"
+                        th:text="${categorie.nom}">
+                </option>
+            </select>
+        </div>
+       y
+        <div class="mb-3">
+            <input type="submit" value="Commander" class="btn btn-primary">
+        </div>
+
+    </form>
+
+</div>
+<script rel="text/javascript"  th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+
+</body>
+</html>
